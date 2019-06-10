@@ -7,6 +7,10 @@
 # Add an accessor method to your MyCar class to change and view the color of your car. 
 # Then add an accessor method that allows you to view, but not modify, the year of your car.
 
+# You want to create a nice interface that allows you to accurately describe the action you 
+# want your program to perform. Create a method called spray_paint that can be called on an 
+# object and will modify the color of the car.
+
 class MyCar
   attr_accessor :color
   attr_reader :year
@@ -37,12 +41,16 @@ class MyCar
     puts "Let's park this bad boy!"
   end
 
+  def spray_paint(color)
+    self.color = color
+    puts "Your new #{color} paint job looks great!"
+  end
+
 end
 
 honda = MyCar.new(2013,'black','accord')
 
 
-honda.color = 'red'
+honda.spray_paint('blue')
 
-puts honda.color
 puts honda.year
