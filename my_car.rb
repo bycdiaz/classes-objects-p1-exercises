@@ -4,13 +4,17 @@
 # of the object to track the current speed of the car as well. Create instance methods 
 # that allow the car to speed up, brake, and shut the car off.
 
-class MyCar
-  attr_accessor :year, :color, :model
+# Add an accessor method to your MyCar class to change and view the color of your car. 
+# Then add an accessor method that allows you to view, but not modify, the year of your car.
 
-  def initialize(year,color,model)
+class MyCar
+  attr_accessor :color
+  attr_reader :year
+
+  def initialize(year, model, color)
     @year = year
-    @color = color
     @model = model
+    @color = color
     @current_speed = 0
   end
 
@@ -24,17 +28,21 @@ class MyCar
     puts "You push the brake and decelerate #{number} mph."
   end
 
+  def current_speed
+    puts "You are now going #{@current_speed} mph."
+  end
+
   def shut_down
     @current_speed = 0
     puts "Let's park this bad boy!"
-  end
-
-  def info
-    "My car is a #{self.year} #{self.model.capitalize}, in #{self.color}."
   end
 
 end
 
 honda = MyCar.new(2013,'black','accord')
 
-puts honda.info
+
+honda.color = 'red'
+
+puts honda.color
+puts honda.year
